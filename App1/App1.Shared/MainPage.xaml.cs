@@ -24,11 +24,14 @@ public sealed partial class MainPage : Page
 		listView.ItemsSource = Items;
 	}
 
-
-	async Task DoSometing()
+	void OnRefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
+	{
+	}
+	
+	async Task DoSomethingAsync()
 	{
 		// Simulate an API call
 		await Task.Delay(TimeSpan.FromSeconds(2));
-		Items.Add($"new item {Items.Count + 1}");
+		Items.Insert(0, $"new item {Items.Count + 1}");
 	}
 }

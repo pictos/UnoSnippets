@@ -5,22 +5,11 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="using:App1"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Padding="10"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 	mc:Ignorable="d">
 
 	<Grid>
-		<ListView
-			x:Name="listView"
-			Height="400"
-			HorizontalAlignment="Center"
-			VerticalAlignment="Center">
-			<!--<ListView.ItemTemplate>
-				<DataTemplate>
-					<Grid>
-						<TextBlock Text="{Binding .}" />
-					</Grid>
-				</DataTemplate>
-			</ListView.ItemTemplate>-->
-		</ListView>
+		<ListView x:Name="listView" HorizontalAlignment="Center" />
 	</Grid>
 </Page>
