@@ -10,6 +10,8 @@
 	mc:Ignorable="d">
 
 	<Grid>
-		<ListView x:Name="listView" HorizontalAlignment="Center" />
+		<RefreshContainer RefreshRequested="OnRefreshRequested">
+			<ListView x:Name="listView" HorizontalAlignment="Center" />
+		</RefreshContainer>
 	</Grid>
 </Page>

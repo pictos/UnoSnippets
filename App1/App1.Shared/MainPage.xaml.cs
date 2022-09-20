@@ -24,8 +24,13 @@ public sealed partial class MainPage : Page
 		listView.ItemsSource = Items;
 	}
 
-	void OnRefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
+	async void OnRefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
 	{
+		using var deferral = args.GetDeferral();
+
+		await DoSomethingAsync();
+
+		deferral?.Complete();
 	}
 	
 	async Task DoSomethingAsync()
