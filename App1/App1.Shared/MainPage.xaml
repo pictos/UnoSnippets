@@ -10,8 +10,17 @@
 	mc:Ignorable="d">
 
 	<Grid>
-		<RefreshContainer RefreshRequested="OnRefreshRequested">
+		<RefreshContainer>
+			<RefreshContainer.Visualizer>
+				<RefreshVisualizer RefreshRequested="OnRefreshRequested" RefreshStateChanged="RefreshVisualizer_RefreshStateChanged">
+					<RefreshVisualizer.Content>
+						<Image Source="ms-appx:///Assets/SunWhite.png" />
+					</RefreshVisualizer.Content>
+				</RefreshVisualizer>
+			</RefreshContainer.Visualizer>
 			<ListView x:Name="listView" HorizontalAlignment="Center" />
 		</RefreshContainer>
+
+		<Button x:Name="btn" Content="Do Something" />
 	</Grid>
 </Page>

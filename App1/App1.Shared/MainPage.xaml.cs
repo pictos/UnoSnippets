@@ -24,7 +24,7 @@ public sealed partial class MainPage : Page
 		listView.ItemsSource = Items;
 	}
 
-	async void OnRefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
+	async void OnRefreshRequested(RefreshVisualizer sender, RefreshRequestedEventArgs args)
 	{
 		using var deferral = args.GetDeferral();
 
@@ -38,5 +38,19 @@ public sealed partial class MainPage : Page
 		// Simulate an API call
 		await Task.Delay(TimeSpan.FromSeconds(2));
 		Items.Insert(0, $"new item {Items.Count + 1}");
+	}
+
+	void RefreshVisualizer_RefreshStateChanged(RefreshVisualizer sender, RefreshStateChangedEventArgs args)
+	{
+		var state = args.NewState;
+
+		if (state == RefreshVisualizerState.Idle)
+		{
+			btn.IsEnabled = true;
+		}
+		else
+		{
+			btn.IsEnabled = false;
+		}
 	}
 }
